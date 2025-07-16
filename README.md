@@ -3,6 +3,7 @@ A web-based application that automatically converts YouTube video transcripts in
 
 Ideal for students, content creators, or professionals looking to quickly digest long videos into concise summaries.
 
+
 ✅ Key Features
 Transcript Extraction: Automatically fetches transcripts from YouTube videos (if available).
 
