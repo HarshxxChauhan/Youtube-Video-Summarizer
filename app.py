@@ -13,7 +13,10 @@ from youtube_transcript_api import (
 
 # Load environment variables
 load_dotenv()
-cohere_api_key = os.getenv("COHERE_API_KEY")
+cohere_api_key = os.getenv("CO_API_KEY")
+if not cohere_api_key:
+    raise ValueError("CO_API_KEY not found. Please check your .env file!")
+
 cohere_client = cohere.Client(cohere_api_key)
 
 prompt_template = """You are a YouTube video summarizer. You will take the transcript text
@@ -68,7 +71,7 @@ def generate_cohere_content(text_chunk, prompt):
         return "Error occurred while generating content."
 
 st.set_page_config(page_title="YouTube Summarizer", layout="centered")
-st.title("🎥 YouTube Transcript to Detailed Notes Converter (Cohere)")
+st.title("🎥 YouTube Videos to Detailed Notes Converter")
 
 youtube_link = st.text_input("Enter YouTube Video Link:")
 
