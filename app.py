@@ -13,10 +13,10 @@ from youtube_transcript_api import (
 
 # Load environment variables
 load_dotenv()
-cohere_api_key = os.getenv("CO_API_KEY")
-if not cohere_api_key:
-    raise ValueError("CO_API_KEY not found. Please check your .env file!")
+cohere_api_key = os.getenv("CO_API_KEY") or "8TF84n4VRjxYkV3oTBZ1bTy1x2qtgcR924RjMkp6"
 
+if not cohere_api_key or cohere_api_key == "your_actual_cohere_api_key_here":
+    st.warning("⚠️ Using hardcoded Cohere API key. For safety, use a .env file in production!")
 cohere_client = cohere.Client(cohere_api_key)
 
 prompt_template = """You are a YouTube video summarizer. You will take the transcript text
